@@ -8,10 +8,10 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: "Startup",
-    author: "Morgan Baker",
+    title: "Pedro Korb",
+    author: "Pedro Korb",
     image: "/yellow-metal-design-decoration.jpg",
-    siteUrl: "https://www.morganbaker.dev",
+    siteUrl: "https://pedrokorb.com",
   },
   plugins: [
     {

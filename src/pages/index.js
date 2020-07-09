@@ -20,16 +20,19 @@ import { MdDone, MdClear } from "react-icons/md"
 export default () => (
   <>
     <Layout>
+
       <Banner />
+
       <TextBlock
         id="about"
-        title="Developing a new business is never easy, but Startup is here to help"
-        paragraph="With a super-fast Gatsby powered website you have the perfect platform to get your idea off the ground. Its the perfect template to help turn your idea into a reality."
+        title="Você quer que as pessoas comprem de você quando pesquisam coisas na internet?"
+        paragraph="Saiba como ter o seu próprio site faz você vender muito mais."
       >
         <Link to="perks" smooth={true} duration={500}>
-          <Button cta="Tell Me More!" />
+          <Button cta="Saiba como!" />
         </Link>
       </TextBlock>
+
       <TextBlockImg
         id="perks"
         title="We have the tools to help you suceed"
@@ -58,6 +61,7 @@ export default () => (
           />
         </div>
       </TextBlockImg>
+
       <Packages
         title="Our Packages"
         para="Choose the perfect solution for you. With benefits to suit all budgets Startup can offer amazing value and expert advice"
@@ -139,6 +143,7 @@ export default () => (
           </Package>
         </IconContext.Provider>
       </Packages>
+      
       <Contact
         id="contact"
         title="Contact Startup today and see how we can help your business grow"

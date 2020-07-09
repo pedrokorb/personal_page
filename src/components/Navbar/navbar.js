@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import links from "../../constants/links"
 import styled from "styled-components"
-import Logo from "../../images/startup-logo.svg"
+import Logo from "../../images/pedrokorb.svg"
 import { Link, animateScroll as scroll } from "react-scroll"
 
 const Navbar = () => {
@@ -69,14 +69,14 @@ const NavWrapper = styled.nav`
     justify-content: space-between;
 
     img {
-      width: 90px;
+      width: 170px;
 
       @media (min-width: 768px) {
-        width: 100px;
+        width: 170px;
       }
 
       @media (min-width: 1200px) {
-        width: 120px;
+        width: 170px;
       }
     }
   }

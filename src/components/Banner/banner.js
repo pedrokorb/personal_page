@@ -38,7 +38,7 @@ const Banner = () => {
             variants={variants}
             transition={{ ease: "easeOut", duration: 0.8, delay: 1 }}
           >
-            It's time to make your business <span>stand out</span>
+            Você quer que seu serviço apareça <span>no topo</span> quando for pesquisado na internet?
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -46,11 +46,10 @@ const Banner = () => {
             variants={variants}
             transition={{ ease: "easeOut", duration: 0.8, delay: 1.5 }}
           >
-            Startup is here to help you achieve your business and personal
-            goals, all through a stylish theme
+            Isso é possível se você tiver um site totalmente otimizado. E nós desenvolvemos para você!
           </motion.p>
           <Link to="about" smooth={true} duration={500}>
-            <Button cta="Learn More" anchor={true} href="linking" />
+            <Button cta="Saber mais" anchor={true} href="linking" />
           </Link>
         </div>
       </BackgroundImage>
