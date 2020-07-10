@@ -124,7 +124,6 @@ const BannerWrapper = styled.section`
         }
       }
     }
-  }
 `
 
 export default Banner
