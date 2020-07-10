@@ -10,9 +10,12 @@ import Package from "../components/Package/package"
 import Contact from "../components/Contact/contact"
 import { Link } from "react-scroll"
 
-import perk1Img from "../images/speed.svg"
-import perk2Img from "../images/piggy-bank.svg"
-import perk3Img from "../images/friendly-staff.svg"
+
+import modelo from "../images/1-1-modelo.svg"
+import desenvolvimento from "../images/1-2-desenvolvimento.svg"
+import entregas from "../images/1-3-entregas.svg"
+import contrato from "../images/1-4-contrato.svg"
+
 
 import { IconContext } from "react-icons"
 import { MdDone, MdClear } from "react-icons/md"
@@ -23,8 +26,41 @@ export default () => (
 
       <Banner />
 
+      <TextBlockImg
+        id="processos"
+        title="Processos"
+        subtitle="Conheça o passo-a-passo, desde o projeto até a entrega do seu website"
+      >
+        <div className="flex-container trio-block">
+          <Perk
+            img={modelo}
+            alt="Escolha de modelo e estrutura do site"
+            title="Escolha de modelo e estrutura do site"
+            content="Nessa etapa você vai discutir conosco como o site vai ser, se tem alguma inspiração e toda sua estrutura."
+          />
+          <Perk
+            img={desenvolvimento}
+            alt="Desenvolvimento"
+            title="Desenvolvimento"
+            content="Desenvolvimento personalizado e otimizado, abrangendo todas as métricas que os maiores buscadores avaliam para seu site ficar bem ranqueado."
+          />
+          <Perk
+            img={entregas}
+            alt="Entregas contínuas"
+            title="Entregas contínuas"
+            content="Para que você acompanhe os processos de desenvolvimento, fazemos pequenas entregas para que você aprove ou faça considerações de mudanças. Tudo do jeito que você gostar."
+          />
+          <Perk
+            img={contrato}
+            alt="Contrato de serviço"
+            title="Contrato de serviço"
+            content="Todo o trabalho vai estar assegurado por um contrato de serviço. Pode confiar."
+          />
+        </div>
+      </TextBlockImg>
+
       <TextBlock
-        id="about"
+        id="sobre"
         title="Você quer que as pessoas comprem de você quando pesquisam coisas na internet?"
         paragraph="Saiba como ter o seu próprio site faz você vender muito mais."
       >
@@ -32,35 +68,6 @@ export default () => (
           <Button cta="Saiba como!" />
         </Link>
       </TextBlock>
-
-      <TextBlockImg
-        id="perks"
-        title="We have the tools to help you suceed"
-        subtitle="Startup is perfect for helping to to start and grow your business. As
-          you begin to gain new clients and expand you will see the benefits of
-          a super-fast Gatsby website"
-      >
-        <div className="flex-container trio-block">
-          <Perk
-            img={perk1Img}
-            alt="Super fast speed increases"
-            title="Speedy"
-            content="Super-fast response times ensure your business is not affected"
-          />
-          <Perk
-            img={perk2Img}
-            alt="Great savings to be made"
-            title="Affordable"
-            content="A choice of packages to suit every business type and size"
-          />
-          <Perk
-            img={perk3Img}
-            alt="Super fast speed increases"
-            title="Friendly"
-            content="Advisors who are available 24/7, all with exprt knowledge"
-          />
-        </div>
-      </TextBlockImg>
 
       <Packages
         title="Our Packages"

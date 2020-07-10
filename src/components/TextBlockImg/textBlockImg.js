@@ -16,11 +16,11 @@ const TextBlockImg = ({ title, children, subtitle, id }) => {
     }
   `)
   return (
-    <BackgroundImage
-      id="perks"
-      Tag="section"
-      fluid={data.file.childImageSharp.fluid}
-    >
+    // <BackgroundImage
+    //   id="perks"
+    //   Tag="section"
+    //   fluid={data.file.childImageSharp.fluid}
+    // >
       <TextBlockImgWrapper>
         <div className="content-container">
           <h2>{title}</h2>
@@ -28,7 +28,7 @@ const TextBlockImg = ({ title, children, subtitle, id }) => {
           {children}
         </div>
       </TextBlockImgWrapper>
-    </BackgroundImage>
+    // </BackgroundImage>
   )
 }
 
