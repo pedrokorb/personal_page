@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @font-face {
+  font-family: 'Asleepytiming';
+  src: local('Asleepytiming'), url(./fonts/Asleepytiming.otf) format('truetype');
+} */
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document

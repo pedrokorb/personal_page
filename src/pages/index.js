@@ -73,7 +73,7 @@ export default () => (
         </div>
       </TextBlockImg>
 
-      <TextBlock
+      {/* <TextBlock
         id="sobre"
         title="Você quer que as pessoas comprem de você quando pesquisam coisas na internet?"
         paragraph="Saiba como ter o seu próprio site faz você vender muito mais."
@@ -81,9 +81,9 @@ export default () => (
         <Link to="perks" smooth={true} duration={500}>
           <Button cta="Saiba como!" />
         </Link>
-      </TextBlock>
+      </TextBlock> */}
 
-      <Packages
+      {/* <Packages
         title="Our Packages"
         para="Choose the perfect solution for you. With benefits to suit all budgets Startup can offer amazing value and expert advice"
       >
@@ -163,13 +163,23 @@ export default () => (
             </Link>
           </Package>
         </IconContext.Provider>
-      </Packages>
+      </Packages> */}
       
-      <Contact
+      {/* <Contact
         id="contact"
         title="Contact Startup today and see how we can help your business grow"
         subtitle="Every second counts when you're looking to get your new business started. Drop Startup a message and one of our representatives will be in contact"
-      />
+      /> */}
+
+      {/* TODO */}
+
+      {/* banner */}
+
+      {/* cards: Features dos sites */}
+
+      {/* Projetos já realizados, fazer um mock das páginas no celular - FIgma */}
+
+      {/* Mande-me uma mensagem no whatsapp agora mesmo! (caixa de texto com o mesmo formato do contato do whats e quando clica em enviar, bota o texto na api do whats) */}
     </Layout>
   </>
 )

@@ -36,13 +36,13 @@ const ButtonWrapper = styled.button`
 
   &:hover {
     cursor: pointer;
-    animation: animate 8s linear infinite;
+    /* animation: animate 8s linear infinite; */
 
-    &::before {
+    /* &::before {
       filter: blur(20px);
       opacity: 1;
       animation: animate 8s linear;
-    }
+    } */
   }
 
   &::before {
@@ -60,14 +60,14 @@ const ButtonWrapper = styled.button`
     transition: 0.5s;
   }
 
-  @keyframes animate {
+  /* @keyframes animate {
     0% {
       background-position: 0%;
     }
     100% {
       background-position: 400%;
     }
-  }
+  } */
 `
 
 export default Button

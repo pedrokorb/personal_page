@@ -5,7 +5,7 @@ import socialIcons from "../../constants/social-icons"
 const Footer = () => {
   return (
     <FooterWrapper>
-      <div className="credit">
+      {/* <div className="credit">
         Designed & developed by{" "}
         <a
           href="http://www.morganbaker.dev"
@@ -14,19 +14,22 @@ const Footer = () => {
         >
           Morgan
         </a>
+      </div> */}
+      <div className="flex justify-center">
+        {socialIcons.map((item, index) => {
+          return (
+            <a
+              key={index}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.icon}
+            </a>
+          )
+        })}
+
       </div>
-      {socialIcons.map((item, index) => {
-        return (
-          <a
-            key={index}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {item.icon}
-          </a>
-        )
-      })}
     </FooterWrapper>
   )
 }
