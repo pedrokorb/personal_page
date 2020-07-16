@@ -9,6 +9,7 @@ import Packages from "../components/Packages/packages"
 import Package from "../components/Package/package"
 import Contact from "../components/Contact/contact"
 import { Link } from "react-scroll"
+import SEO from "../components/seo"
 
 
 import modelo from "../images/1-1-modelo.svg"
@@ -23,6 +24,19 @@ import { MdDone, MdClear } from "react-icons/md"
 export default () => (
   <>
     <Layout>
+      <SEO
+        title="Início"
+        keywords={
+          [
+            `pré moldados`,
+            `casa`,
+            `construção`,
+            `cachoeira do sul`,
+            `obra`,
+            `material de construção`,
+          ]
+        }
+      />
 
       <Banner />
 
