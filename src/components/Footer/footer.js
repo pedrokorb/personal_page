@@ -20,7 +20,7 @@ const Footer = () => {
           return (
             <a
               key={index}
-              name="social link"
+              aria-label="social link"
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
