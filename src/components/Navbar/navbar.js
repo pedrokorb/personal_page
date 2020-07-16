@@ -20,6 +20,7 @@ const Navbar = () => {
               ? `${"toggle-btn"} ${"toggle-btn-active"}`
               : `${"toggle-btn"}`
           }
+          name="menu toggle button"
           type="button"
           onClick={toggleNav}
         >
