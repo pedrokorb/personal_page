@@ -1,9 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import Button from "../Button/button"
-import { Link } from "react-scroll"
 import { motion } from "framer-motion"
 
 const Banner = () => {
@@ -48,8 +47,8 @@ const Banner = () => {
           >
             Isso é possível se você tiver um site totalmente otimizado. E nós desenvolvemos para você!
           </motion.p>
-          <Link to="about" smooth={true} duration={500}>
-            <Button cta="Saber mais" anchor={true} href="linking" />
+          <Link to="/websites">
+            <Button cta="Saber mais" anchor={true} href="websites" />
           </Link>
         </div>
       </BackgroundImage>

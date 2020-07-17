@@ -5,13 +5,13 @@ import TextBlock from "../components/TextBlock/textBlock"
 import TextBlockImg from "../components/TextBlockImg/textBlockImg"
 import CostumersSection from "../components/CostumersSection/CostumersSection"
 import Perk from "../components/Perk/perk"
+import BannerCarousel from "../components/Sites/BannerCarousel"
 import Button from "../components/Button/button"
 import Packages from "../components/Packages/packages"
 import Package from "../components/Package/package"
 import Contact from "../components/Contact/contact"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
-import BannerCarousel from "../components/Sites/BannerCarousel"
 
 
 import modelo from "../images/1-1-modelo.svg"
@@ -27,7 +27,7 @@ export default () => (
   <>
     <Layout>
       <SEO
-        title="Início"
+        title="Websites"
         keywords={
           [
             `pré moldados`,
@@ -174,7 +174,7 @@ export default () => (
           </Package>
         </IconContext.Provider>
       </Packages> */}
-      
+
       {/* <Contact
         id="contact"
         title="Contact Startup today and see how we can help your business grow"

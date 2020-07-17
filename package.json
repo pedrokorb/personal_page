@@ -30,7 +30,9 @@
     "react-icons": "^3.10.0",
     "react-intersection-observer": "^8.26.2",
     "react-scroll": "^1.7.16",
+    "react-slick": "^0.26.1",
     "react-sticky": "^6.0.3",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.4.1",
     "typeface-gothic-a1": "0.0.61"
   },
