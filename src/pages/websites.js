@@ -12,6 +12,7 @@ import Package from "../components/Package/package"
 import Contact from "../components/Contact/contact"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
+import ContactSection from "../components/ContactSection/ContactSection"
 
 
 import modelo from "../images/1-1-modelo.svg"
@@ -82,6 +83,10 @@ export default () => (
       >
         <BannerCarousel />
       </CostumersSection>
+
+      <div className="mx-auto" style={{ maxWidth: '600px' }}>
+        <ContactSection />
+      </div>
 
       {/* <TextBlock
         id="sobre"

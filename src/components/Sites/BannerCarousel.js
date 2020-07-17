@@ -63,7 +63,7 @@ function PrevArrow(props) {
 export default function BannerCarousel(props) {
   let items = [
     { 
-      title: "Carniceria del Fuego",
+      title: "Carniceria Del Fuego",
       link: "https://carniceriadelfuego.com.br",
       image: DelFuego 
     },
