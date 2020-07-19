@@ -76,8 +76,8 @@ export default () => (
 
       <div className="pt-16">
         <CostumersSection
-          id="clientes"
-          title="Clientes"
+          id="parceiros"
+          title="Parceiros"
           subtitle="Essas empresas já confiaram no nosso trabalho e hoje lucram na internet"
         >
           <BannerCarousel />
