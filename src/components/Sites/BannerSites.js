@@ -12,12 +12,12 @@ export default function BannerSites(props) {
       }}
     >
       <div className="flex-1">
-        <h3 style={{ fontWeight: 400 }} className="text-white mb-8">{props.title}</h3>
+        <h3 style={{ fontWeight: 400 }} className="text-white mb-10">{props.title}</h3>
         <a href={props.link} target="_blank" rel="noopener noreferrer">
           <Button cta="Acessar"/>
         </a>
       </div>
-      <img className="flex-1 mb-8 lg:mr-20" src={props.image} alt={props.title} style={{ width: '100%', maxWidth: '600px' }} />
+      <img className="flex-1 mb-8 py-12 lg:mr-20" src={props.image} alt={props.title} style={{ width: '100%', maxWidth: '600px' }} />
     </div>
   );
 }

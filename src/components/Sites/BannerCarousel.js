@@ -78,6 +78,7 @@ export default function BannerCarousel(props) {
     dots: false,
     arrows: items.length > 1 ? true : false,
     infinite: true,
+    autoplay: true,
     fade: true,
     speed: 500,
     slidesToShow: 1,

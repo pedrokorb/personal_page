@@ -17,6 +17,12 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+.section-title {
+    background: -webkit-linear-gradient(45deg, #f441a5, #03a9f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */

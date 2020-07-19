@@ -5,7 +5,7 @@ const Button = props => {
   return (
     <>
       {props.anchor ? (
-        <ButtonWrapper className="anchor" as="a" href={props.href}>
+        <ButtonWrapper className="anchor" as="a" href={props.href} target="_blank" rel="noopener noreferrer">
           {props.cta}
         </ButtonWrapper>
       ) : (

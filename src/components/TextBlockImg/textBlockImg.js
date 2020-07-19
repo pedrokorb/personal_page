@@ -34,7 +34,7 @@ const TextBlockImg = ({ title, children, subtitle, id }) => {
 
 const TextBlockImgWrapper = styled.section`
   text-align: center;
-  padding: 100px 30px;
+  padding: 50px 30px;
 
   .content-container {
     max-width: 500px;

@@ -19,7 +19,7 @@ const Navbar = () => {
         >
           <img src={Logo} alt="Startup Logo" />
         </Link>
-        <button
+        {/* <button
           className={
             isOpen
               ? `${"toggle-btn"} ${"toggle-btn-active"}`
@@ -32,9 +32,9 @@ const Navbar = () => {
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </button> */}
       </div>
-      <ul
+      {/* <ul
         className={isOpen ? `${"nav-links"} ${"show-nav"}` : `${"nav-links"}`}
       >
         {links.map((item, index) => {
@@ -53,7 +53,7 @@ const Navbar = () => {
             </li>
           )
         })}
-      </ul>
+      </ul> */}
     </NavWrapper>
   )
 }

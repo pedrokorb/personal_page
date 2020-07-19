@@ -12,12 +12,18 @@ import Contact from "../components/Contact/contact"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import BannerCarousel from "../components/Sites/BannerCarousel"
-
+import ImageToRight from "../components/CallToActions/ImageToRight"
+import ImageToLeft from "../components/CallToActions/ImageToLeft"
 
 import modelo from "../images/1-1-modelo.svg"
 import desenvolvimento from "../images/1-2-desenvolvimento.svg"
 import entregas from "../images/1-3-entregas.svg"
 import contrato from "../images/1-4-contrato.svg"
+
+import Responsive from "../icons/responsive.svg"
+import Personalizado from "../icons/personalizado.svg"
+import Painel from "../icons/painel.svg"
+import Hospedagem from "../icons/hospedagem.svg"
 
 
 import { IconContext } from "react-icons"
@@ -41,6 +47,42 @@ export default () => (
       />
 
       <Banner />
+
+      <div className="my-16">
+        <ImageToRight
+          title="Desenvolvimento Personalizado"
+          subtitle="Contando com toda a experiência da nossa equipe, desenvolvemos o site do jeito que você quer"
+          image={Personalizado}
+        />
+
+        <ImageToLeft 
+          title="Painel de Gerenciamento de Conteúdo"
+          subtitle="Para gerenciar todo o conteúdo do site, oferecemos como solução um painel intuitivo e poderoso, que possibilita a total autonomia do cliente em relação ao conteúdo"
+          image={Painel}
+        />
+
+        <ImageToRight
+          title="Hospedagem Inclusa"
+          subtitle="Você não precisa se preocupar com a hospedagem do seu site. Deixa isso com a gente"
+          image={Hospedagem}
+        />
+
+        <ImageToLeft
+          title="Site Responsivo e Otimizado"
+          subtitle="Você conhece os requisitos que o Google utiliza para ranquear os sites? Nós conhecemos e desenvolvemos seu site totalmente otimizado e também para que ele se adapte a todos os tipos de tela"
+          image={Responsive}
+        />
+      </div>
+
+      <div className="pt-16">
+        <CostumersSection
+          id="clientes"
+          title="Clientes"
+          subtitle="Essas empresas já confiaram no nosso trabalho e hoje lucram na internet"
+        >
+          <BannerCarousel />
+        </CostumersSection>
+      </div>
 
       <TextBlockImg
         id="processos"
@@ -75,13 +117,6 @@ export default () => (
         </div>
       </TextBlockImg>
 
-      <CostumersSection
-        id="clientes"
-        title="Clientes"
-        subtitle="Essas empresas já confiaram no nosso trabalho e hoje lucram na internet"
-      >
-        <BannerCarousel />
-      </CostumersSection>
 
       {/* <TextBlock
         id="sobre"

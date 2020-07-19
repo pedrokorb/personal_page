@@ -18,6 +18,9 @@ const Banner = () => {
     }
   `)
 
+  const phone = "5555996737066"
+  const message = "Olá, vi seu anúncio no seu site e gostaria de mais informações sobre fazer meu site personalizado."
+
   const variants = {
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: 20 },
@@ -47,9 +50,7 @@ const Banner = () => {
           >
             Isso é possível se você tiver um site totalmente otimizado. E nós desenvolvemos para você!
           </motion.p>
-          <Link to="/websites">
-            <Button cta="Saber mais" anchor={true} href="websites" />
-          </Link>
+          <Button cta="Saber mais" anchor={true} href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`} />
         </div>
       </BackgroundImage>
     </BannerWrapper>

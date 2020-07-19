@@ -1,61 +1,37 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import React, { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
+import { motion, useAnimation } from "framer-motion"
 
 const CostumersSection = ({ title, children, subtitle, id }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "purple-bg.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000, quality: 90) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
+
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    // Percentage of item in view to trigger animation
+    threshold: 0.25,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible")
     }
-  `)
+  }, [controls, inView])
+
   return (
-    // <BackgroundImage
-    //   id="perks"
-    //   Tag="section"
-    //   fluid={data.file.childImageSharp.fluid}
-    // >
-    <CostumersSectionWrapper>
-      <div>
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
-        {children}
-      </div>
-    </CostumersSectionWrapper>
-    // </BackgroundImage>
+    <motion.div
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 25 },
+      }}
+      transition={{ ease: "easeOut", duration: 1.25, delay: 0.35 }}
+    >
+      <h2 className="section-title text-center px-8">{title}</h2>
+      <p className="text-center py-5 mb-12 px-8">{subtitle}</p>
+      {children}
+    </motion.div>
   )
 }
-
-const CostumersSectionWrapper = styled.section`
-  text-align: center;
-  /* padding: 100px 30px;
-
-  .content-container {
-    max-width: 500px;
-
-    @media (min-width: 768px) {
-      max-width: 650px;
-    }
-
-    @media (min-width: 1200px) {
-      max-width: 900px;
-    }
-  } */
-
-  h2 {
-    background: -webkit-linear-gradient(45deg, #f441a5, #03a9f4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  p {
-    margin-bottom: 50px;
-  }
-`
 
 export default CostumersSection
