@@ -2,15 +2,18 @@ import React from "react"
 import styled from "styled-components"
 import "typeface-gothic-a1"
 import "./reset.css"
-import Navbar from "../components/Navbar/navbar"
+import { ModalProvider } from 'react-simple-hook-modal';
+import NavBar from "../components/navbar/NavBar"
 import Footer from "../components/Footer/footer"
 
 const Layout = ({ children }) => {
   return (
     <LayoutWrapper>
-      <Navbar />
-      <div className="layout">{children}</div>
-      <Footer />
+      <ModalProvider>
+        <NavBar />
+        <div className="layout">{children}</div>
+        <Footer />
+      </ModalProvider>
     </LayoutWrapper>
   )
 }
@@ -59,7 +62,7 @@ const LayoutWrapper = styled.div`
   p {
     font-size: 1rem;
     line-height: 1.45;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
 
     @media (min-width: 768px) {
       font-size: 1.1rem;

@@ -40,7 +40,7 @@ const Banner = () => {
             variants={variants}
             transition={{ ease: "easeOut", duration: 0.8, delay: 1 }}
           >
-            Você quer que seu serviço apareça <span>no topo</span> quando for pesquisado na internet?
+            Teve aquela <span>idéia</span> de aplicativo, sistema ou página, mas não sabe como tirar do papel?
           </motion.h1>
           <motion.p
             initial="hidden"
@@ -48,9 +48,9 @@ const Banner = () => {
             variants={variants}
             transition={{ ease: "easeOut", duration: 0.8, delay: 1.5 }}
           >
-            Isso é possível se você tiver um site totalmente otimizado. E nós desenvolvemos para você!
+            Entre em contato comigo e vamos torná-la real!
           </motion.p>
-          <Button cta="Saber mais" anchor={true} href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`} />
+          <Button cta="Entrar em contato" anchor={true} href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`} />
         </div>
       </BackgroundImage>
     </BannerWrapper>

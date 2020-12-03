@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import Banner from "../components/Banner/banner"
 import TextBlock from "../components/TextBlock/textBlock"
@@ -24,207 +24,282 @@ import Responsive from "../icons/responsive.svg"
 import Personalizado from "../icons/personalizado.svg"
 import Painel from "../icons/painel.svg"
 import Hospedagem from "../icons/hospedagem.svg"
+import BoasVindas from '../images/BoasVindas.svg'
 
+import { setNameInStorage, getNameFromStorage } from '../resources/ContactResources'
+
+import {
+  Modal,
+  useModal,
+  ModalTransition,
+} from 'react-simple-hook-modal';
+import 'react-simple-hook-modal/dist/styles.css';
 
 import { IconContext } from "react-icons"
 import { MdDone, MdClear } from "react-icons/md"
 
-export default () => (
-  <>
-    <Layout>
-      <SEO
-        title="Início"
-        keywords={
-          [
-            `pré moldados`,
-            `casa`,
-            `construção`,
-            `cachoeira do sul`,
-            `obra`,
-            `material de construção`,
-          ]
-        }
-      />
+export default () => {
+  const { isModalOpen, openModal, closeModal } = useModal();
+  const [name, setName] = useState('')
+  const [allowed, setAllowed] = useState(false)
 
-      <Banner />
+  useEffect(()=>{
+    // verifyHasName();
+  }, [])
 
-      <div className="my-16">
-        <ImageToRight
-          title="Desenvolvimento Personalizado"
-          subtitle="Contando com toda a experiência da nossa equipe, desenvolvemos o site do jeito que você quer"
-          image={Personalizado}
+  const verifyHasName = async () => {
+    if(!await getNameFromStorage()){
+      openModal()
+    } else {
+      console.log(await getNameFromStorage())
+    }
+  }
+
+  const handleChangeName = (event) => {
+    setName(event.target.value)
+    if(event.target.value) {
+      setAllowed(true)
+    } else {
+      setAllowed(false)
+    }
+  }
+
+  const handleSaveName = async (event) => {
+    if(event.key === 'Enter'){
+      setNameInStorage(name)
+      closeModal()
+    }
+  }
+
+  return (
+    <>
+      <Layout>
+        <SEO
+          title="Início"
+          keywords={
+            [
+              `pré moldados`,
+              `casa`,
+              `construção`,
+              `cachoeira do sul`,
+              `obra`,
+              `material de construção`,
+            ]
+          }
         />
-
-        <ImageToLeft 
-          title="Painel de Gerenciamento de Conteúdo"
-          subtitle="Para gerenciar todo o conteúdo do site, oferecemos como solução um painel intuitivo e poderoso, que possibilita a total autonomia do cliente em relação ao conteúdo"
-          image={Painel}
-        />
-
-        <ImageToRight
-          title="Hospedagem Inclusa"
-          subtitle="Você não precisa se preocupar com a hospedagem do seu site. Deixa isso com a gente"
-          image={Hospedagem}
-        />
-
-        <ImageToLeft
-          title="Site Responsivo e Otimizado"
-          subtitle="Você conhece os requisitos que o Google utiliza para ranquear os sites? Nós conhecemos e desenvolvemos seu site totalmente otimizado e também para que ele se adapte a todos os tipos de tela"
-          image={Responsive}
-        />
-      </div>
-
-      <div className="pt-16">
-        <CostumersSection
-          id="parceiros"
-          title="Parceiros"
-          subtitle="Essas empresas já confiaram no nosso trabalho e hoje lucram na internet"
+        <Modal
+          id="any-unique-identifier"
+          isOpen={isModalOpen}
+          transition={ModalTransition.SCALE}
         >
-          <BannerCarousel />
-        </CostumersSection>
-      </div>
+          <div className="flex justify-center items-center self-stretch">
+            <div className="flex flex-col">
+              <img src={BoasVindas} className="h-40 mb-5" />
+              <p className="text-center mb-4">Que bom que está gostando!</p>
+              <p className="text-center mb-4">Como você gostaria de ser chamado?</p>
+              <input
+                className="mb-2 bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                value={name}
+                onChange={handleChangeName}
+                onKeyDown={handleSaveName}
+                aria-labelledby="name"
+              />
+              <div className="mt-2 text-center">
+                <button
+                  className={`bg-white hover:bg-gray-500 text-black font-bold py-2 px-6 rounded-lg ${
+                    allowed ? '' : 'opacity-50 cursor-not-allowed'
+                  }`}
+                  onClick={handleSaveName}
+                  aria-labelledby="enviar"
+                  disabled={!allowed}
+                >
+                  Ok
+                </button>
+              </div>
+            </div>
+          </div>
+        </Modal>
 
-      <TextBlockImg
-        id="processos"
-        title="Processos"
-        subtitle="Conheça o passo-a-passo, desde o projeto até a entrega do seu website"
-      >
-        <div className="flex-container trio-block">
-          <Perk
-            img={modelo}
-            alt="Escolha de modelo e estrutura do site"
-            title="Escolha de modelo e estrutura do site"
-            content="Nessa etapa você vai discutir conosco como o site vai ser, se tem alguma inspiração e toda sua estrutura."
+        <Banner />
+
+        <div className="my-16">
+          <ImageToRight
+            title="Desenvolvimento Personalizado"
+            subtitle="Contando com toda a experiência da nossa equipe, desenvolvemos o site do jeito que você quer"
+            image={Personalizado}
           />
-          <Perk
-            img={desenvolvimento}
-            alt="Desenvolvimento"
-            title="Desenvolvimento"
-            content="Desenvolvimento personalizado e otimizado, abrangendo todas as métricas que os maiores buscadores avaliam para seu site ficar bem ranqueado."
+
+          <ImageToLeft 
+            title="Painel de Gerenciamento de Conteúdo"
+            subtitle="Para gerenciar todo o conteúdo do site, oferecemos como solução um painel intuitivo e poderoso, que possibilita a total autonomia do cliente em relação ao conteúdo"
+            image={Painel}
           />
-          <Perk
-            img={entregas}
-            alt="Entregas contínuas"
-            title="Entregas contínuas"
-            content="Para que você acompanhe os processos de desenvolvimento, fazemos pequenas entregas para que você aprove ou faça considerações de mudanças. Tudo do jeito que você gostar."
+
+          <ImageToRight
+            title="Hospedagem Inclusa"
+            subtitle="Você não precisa se preocupar com a hospedagem do seu site. Deixa isso com a gente"
+            image={Hospedagem}
           />
-          <Perk
-            img={contrato}
-            alt="Contrato de serviço"
-            title="Contrato de serviço"
-            content="Todo o trabalho vai estar assegurado por um contrato de serviço. Pode confiar."
+
+          <ImageToLeft
+            title="Site Responsivo e Otimizado"
+            subtitle="Você conhece os requisitos que o Google utiliza para ranquear os sites? Nós conhecemos e desenvolvemos seu site totalmente otimizado e também para que ele se adapte a todos os tipos de tela"
+            image={Responsive}
           />
         </div>
-      </TextBlockImg>
 
+        <div className="pt-16">
+          <CostumersSection
+            id="parceiros"
+            title="Parceiros"
+            subtitle="Essas empresas já confiaram no nosso trabalho e hoje lucram na internet"
+          >
+            <BannerCarousel />
+          </CostumersSection>
+        </div>
 
-      {/* <TextBlock
-        id="sobre"
-        title="Você quer que as pessoas comprem de você quando pesquisam coisas na internet?"
-        paragraph="Saiba como ter o seu próprio site faz você vender muito mais."
-      >
-        <Link to="perks" smooth={true} duration={500}>
-          <Button cta="Saiba como!" />
-        </Link>
-      </TextBlock> */}
-
-      {/* <Packages
-        title="Our Packages"
-        para="Choose the perfect solution for you. With benefits to suit all budgets Startup can offer amazing value and expert advice"
-      >
-        <IconContext.Provider
-          value={{
-            color: "#7FFF00",
-            size: "1.2em",
-            style: { verticalAlign: "middle", marginRight: "5px" },
-          }}
+        <TextBlockImg
+          id="processos"
+          title="Processos"
+          subtitle="Conheça o passo-a-passo, desde o projeto até a entrega do seu website"
         >
-          <Package title="Standard">
-            <ul>
-              <li>
-                <MdDone />1 User
-              </li>
-              <li>
-                <MdDone />
-                1GB Storage
-              </li>
-              <li className="linethrough">
-                <MdClear color="red" />
-                Dedicated Advisor
-              </li>
-              <li className="linethrough">
-                <MdClear color="red" />
-                24/7 Support
-              </li>
-            </ul>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button cta="I want this!" />
-            </Link>
-          </Package>
-          <Package title="Hyper" active={true}>
-            <ul>
-              <li>
-                <MdDone />
-                24/7 Support
-              </li>
-              <li>
-                <MdDone />
-                Dedicated Advisor
-              </li>
-              <li>
-                <MdDone />
-                Unlimited Storage
-              </li>
-              <li>
-                <MdDone />
-                Unlimited Users
-              </li>
-            </ul>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button cta="I want this!" />
-            </Link>
-          </Package>
-          <Package title="Super">
-            <ul>
-              <li>
-                <MdDone />
-                10 Users
-              </li>
-              <li>
-                <MdDone />
-                500GB Storage
-              </li>
-              <li>
-                <MdDone />
-                Advice Support
-              </li>
-              <li className="linethrough">
-                <MdClear color="red" />
-                Dedicated Advisor
-              </li>
-            </ul>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button cta="I want this!" />
-            </Link>
-          </Package>
-        </IconContext.Provider>
-      </Packages> */}
-      
-      {/* <Contact
-        id="contact"
-        title="Contact Startup today and see how we can help your business grow"
-        subtitle="Every second counts when you're looking to get your new business started. Drop Startup a message and one of our representatives will be in contact"
-      /> */}
+          <div className="flex-container trio-block">
+            <Perk
+              img={modelo}
+              alt="Escolha de modelo e estrutura do site"
+              title="Escolha de modelo e estrutura do site"
+              content="Nessa etapa você vai discutir conosco como o site vai ser, se tem alguma inspiração e toda sua estrutura."
+            />
+            <Perk
+              img={desenvolvimento}
+              alt="Desenvolvimento"
+              title="Desenvolvimento"
+              content="Desenvolvimento personalizado e otimizado, abrangendo todas as métricas que os maiores buscadores avaliam para seu site ficar bem ranqueado."
+            />
+            <Perk
+              img={entregas}
+              alt="Entregas contínuas"
+              title="Entregas contínuas"
+              content="Para que você acompanhe os processos de desenvolvimento, fazemos pequenas entregas para que você aprove ou faça considerações de mudanças. Tudo do jeito que você gostar."
+            />
+            <Perk
+              img={contrato}
+              alt="Contrato de serviço"
+              title="Contrato de serviço"
+              content="Todo o trabalho vai estar assegurado por um contrato de serviço. Pode confiar."
+            />
+          </div>
+        </TextBlockImg>
 
-      {/* TODO */}
 
-      {/* banner */}
+        {/* <TextBlock
+          id="sobre"
+          title="Você quer que as pessoas comprem de você quando pesquisam coisas na internet?"
+          paragraph="Saiba como ter o seu próprio site faz você vender muito mais."
+        >
+          <Link to="perks" smooth={true} duration={500}>
+            <Button cta="Saiba como!" />
+          </Link>
+        </TextBlock> */}
 
-      {/* cards: Features dos sites */}
+        {/* <Packages
+          title="Our Packages"
+          para="Choose the perfect solution for you. With benefits to suit all budgets Startup can offer amazing value and expert advice"
+        >
+          <IconContext.Provider
+            value={{
+              color: "#7FFF00",
+              size: "1.2em",
+              style: { verticalAlign: "middle", marginRight: "5px" },
+            }}
+          >
+            <Package title="Standard">
+              <ul>
+                <li>
+                  <MdDone />1 User
+                </li>
+                <li>
+                  <MdDone />
+                  1GB Storage
+                </li>
+                <li className="linethrough">
+                  <MdClear color="red" />
+                  Dedicated Advisor
+                </li>
+                <li className="linethrough">
+                  <MdClear color="red" />
+                  24/7 Support
+                </li>
+              </ul>
+              <Link to="contact" smooth={true} duration={500}>
+                <Button cta="I want this!" />
+              </Link>
+            </Package>
+            <Package title="Hyper" active={true}>
+              <ul>
+                <li>
+                  <MdDone />
+                  24/7 Support
+                </li>
+                <li>
+                  <MdDone />
+                  Dedicated Advisor
+                </li>
+                <li>
+                  <MdDone />
+                  Unlimited Storage
+                </li>
+                <li>
+                  <MdDone />
+                  Unlimited Users
+                </li>
+              </ul>
+              <Link to="contact" smooth={true} duration={500}>
+                <Button cta="I want this!" />
+              </Link>
+            </Package>
+            <Package title="Super">
+              <ul>
+                <li>
+                  <MdDone />
+                  10 Users
+                </li>
+                <li>
+                  <MdDone />
+                  500GB Storage
+                </li>
+                <li>
+                  <MdDone />
+                  Advice Support
+                </li>
+                <li className="linethrough">
+                  <MdClear color="red" />
+                  Dedicated Advisor
+                </li>
+              </ul>
+              <Link to="contact" smooth={true} duration={500}>
+                <Button cta="I want this!" />
+              </Link>
+            </Package>
+          </IconContext.Provider>
+        </Packages> */}
+        
+        {/* <Contact
+          id="contact"
+          title="Contact Startup today and see how we can help your business grow"
+          subtitle="Every second counts when you're looking to get your new business started. Drop Startup a message and one of our representatives will be in contact"
+        /> */}
 
-      {/* Projetos já realizados, fazer um mock das páginas no celular - FIgma */}
+        {/* TODO */}
 
-      {/* Mande-me uma mensagem no whatsapp agora mesmo! (caixa de texto com o mesmo formato do contato do whats e quando clica em enviar, bota o texto na api do whats) */}
-    </Layout>
-  </>
-)
+        {/* banner */}
+
+        {/* cards: Features dos sites */}
+
+        {/* Projetos já realizados, fazer um mock das páginas no celular - FIgma */}
+
+        {/* Mande-me uma mensagem no whatsapp agora mesmo! (caixa de texto com o mesmo formato do contato do whats e quando clica em enviar, bota o texto na api do whats) */}
+      </Layout>
+    </>
+  )
+}
